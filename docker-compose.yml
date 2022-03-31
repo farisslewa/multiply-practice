@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  product-service:
+    build: ./dockercompose
+    ports:
+      - "8000:8000"
+      
+  http-request:
+    build: ./httprequest
