@@ -1,10 +1,31 @@
 version: '3'
 
 services:
-  product-service:
+  backend:
     build: ./dockercompose
     ports:
       - "8000:8000"
       
   http-request:
     build: ./httprequest
+    
+  logdb:
+    image: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - pglogdb:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: logdb
+      
+  adminer:
+    image: adminer
+    depends_on:
+      - logdb
+    ports:
+      - "8080:8080"
+      
+volumes:
+  pglogdb:

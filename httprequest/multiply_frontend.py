@@ -6,7 +6,7 @@ import requests
 payload = {"param1": 4,"param2":6}
 
 def getmultiply(payload):
-  result = requests.get("http://product-service:8000/multiply", params=payload)
+  result = requests.get("http://backend:8000/multiply", params=payload)
   return (result.json())
 
 print(getmultiply(payload))
