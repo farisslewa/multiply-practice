@@ -7,6 +7,6 @@ payload = {"param1": 4,"param2":6}
 
 def getmultiply(payload):
   result = requests.get("http://127.0.0.1:8000/multiply", params=payload)
+  print(result.json())
   return (result.json())
 
-print(getmultiply(payload))
