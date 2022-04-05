@@ -9,4 +9,3 @@ def getmultiply(payload):
   result = requests.get("http://backend:8000/multiply", params=payload)
   return (result.json())
 
-print(getmultiply(payload))
